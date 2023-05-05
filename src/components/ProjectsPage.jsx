@@ -1,4 +1,4 @@
-
+import "../styles/ProjectsPageStyle.scss";
 
 function ProjectsPage(props) {
   
@@ -7,7 +7,7 @@ function ProjectsPage(props) {
   
     return (
     <div className="projectspage" style={{ display: isActive ? 'none' : 'flex' }}>
-      <h1>ProjectsPage</h1>
+      
       </div>
     );
   }

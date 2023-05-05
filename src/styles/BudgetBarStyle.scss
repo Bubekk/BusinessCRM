@@ -1,0 +1,34 @@
+.chart-bar {
+    width: 90%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+
+    &-budget {
+      width: 100%;
+      background-color: rgb(59, 190, 59);
+      transition: width .3s ease-in-out;
+    }
+
+    &-expenses {
+      display: flex; 
+      background-color: rgb(255, 17, 0);
+      transition: width .8s ease-in-out;
+
+      &-hr {
+        background-color: rgb(26, 99, 112);
+        transition: width .8s ease-in-out;
+      }
+      &-pr {
+        background-color: rgb(143, 21, 135);
+        transition: width .8s ease-in-out;
+      }
+      &-maintance {
+        background-color: rgb(151, 160, 26);
+        transition: width .8s ease-in-out;
+      }
+    }
+  }

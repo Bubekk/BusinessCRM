@@ -41,6 +41,10 @@ function NavBar(props) {
           onClick={() => handleActivePageClick("ProjectsPage")}
         />
         <MenuButton
+          dest="BUDGET"
+          onClick={() => handleActivePageClick("BudgetPage")}
+        />
+        <MenuButton
           dest="SETTINGS"
           onClick={() => handleActivePageClick("SettingsPage")}
         />

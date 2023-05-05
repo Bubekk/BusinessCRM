@@ -5,6 +5,7 @@ import ToDoList from "./components/ToDoList";
 import NotificationsPage from "./components/NotificationsPage";
 import EmployeesPage from "./components/EmployeesPage";
 import ProjectsPage from "./components/ProjectsPage";
+import BudgetPage from "./components/BudgetPage";
 import SettingsPage from "./components/SettingsPage";
 import { useState } from "react";
 
@@ -23,6 +24,8 @@ function App() {
           return <EmployeesPage />;
       case "ProjectsPage":
         return <ProjectsPage />;
+      case "BudgetPage":
+        return <BudgetPage />;
       case "SettingsPage":
         return <SettingsPage />;
       default:

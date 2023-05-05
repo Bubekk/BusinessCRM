@@ -1,0 +1,21 @@
+.budgetpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 90px 15px 20px 15px;
+  box-shadow: 2.18px 2.18px 4px rgba(0, 0, 0, 0.25), -2.18px -2.18px 4px #353c4a;
+  border-radius: 5px;
+
+  &-chart {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2.18px 2.18px 4px rgba(0, 0, 0, 0.25),
+      -2.18px -2.18px 4px #353c4a;
+    border-radius: 5px;
+    padding: 5px;
+  }
+}
