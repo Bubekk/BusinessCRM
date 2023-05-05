@@ -1,0 +1,22 @@
+[
+    {
+     "id": 0,
+     "departmentName": "Sales",
+     "employees": ["Helen Bozo", "Andrew Dundy"]   
+    },
+    {
+     "id": 1,
+     "departmentName": "Development",
+     "employees": ["John Doe", "Elon Thompson"]   
+    },
+    {
+     "id": 2,
+     "departmentName": "Project Managment",
+     "employees": ["Rick Astley"]   
+    },
+    {
+     "id": 3,
+     "departmentName": "Project Design",
+     "employees": ["Joanne Doe"]   
+    }
+]

@@ -1,0 +1,24 @@
+.employeecontainer {
+  width: 100%;
+
+  .employeecard {
+    margin-bottom: 10px;
+    box-shadow: 2.18px 2.18px 4px rgba(0, 0, 0, 0.25),
+      -2.18px -2.18px 4px #353c4a;
+    border-radius: 5px;
+    padding: 5px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: end;
+
+      img {
+        width: 65px;
+        border-radius: 100%;
+        margin-right: 10px;
+      }
+    }
+  }
+}

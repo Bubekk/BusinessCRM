@@ -1,0 +1,53 @@
+.todotile {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #323843, #2a2f39);
+  box-shadow: 8px 8px 9px #191c21, -8px -8px 9px #454c5d;
+  margin-bottom: 50px;
+
+  &-header {
+    width: 95%;
+  }
+
+  &-btn-done {
+    width: 5%;
+    height: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &-description {
+    width: 70%;
+    overflow-wrap: break-word;
+  }
+
+  &-date {
+    width: 30%;
+    text-align: end;
+  }
+}
+
+.yellow {
+  background: linear-gradient(145deg, #545321, #877e1b);
+  box-shadow: 8px 8px 9px #191c21, -8px -8px 9px #454c5d;
+
+}
+
+.orange {
+  background: linear-gradient(145deg, #724619, #c77b09);
+  box-shadow: 8px 8px 9px #191c21, -8px -8px 9px #454c5d;
+
+}
+
+.red {
+  background: linear-gradient(145deg, #6c301d, #a50d0d);
+  box-shadow: 8px 8px 9px #191c21, -8px -8px 9px #454c5d;
+
+}

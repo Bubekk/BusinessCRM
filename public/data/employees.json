@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "name": "Joanne Doe",
+        "position": "Graphic Designer",
+        "avatar": "17",
+        "actualProject": "",
+        "departament": "Project Design"
+    },
+    {
+        "id": 1,
+        "name": "John Doe",
+        "position": "Software Engineer",
+        "avatar": "69",
+        "actualProject": "",
+        "departament": "Project Development"
+    },
+    {
+        "id": 2,
+        "name": "Andrew Dundy",
+        "position": "Salesman",
+        "avatar": "13",
+        "actualProject": "",
+        "departament": "Sales"
+    },
+    {
+        "id": 3,
+        "name": "Helen Bozo",
+        "position": "Salesman",
+        "avatar": "89",
+        "actualProject": "",
+        "departament": "Sales"
+    },
+    {
+        "id": 4,
+        "name": "Elon Thompson",
+        "position": "Frontend Developer",
+        "avatar": "40",
+        "actualProject": "",
+        "departament": "Project Development"
+    },
+    {
+        "id": 5,
+        "name": "Rick Astley",
+        "position": "Project Manager",
+        "avatar": "25",
+        "actualProject": "",
+        "departament": "Project Managment"
+    }
+]

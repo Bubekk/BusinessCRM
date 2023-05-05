@@ -1,0 +1,25 @@
+.departmentcontainer {
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  .departmenttile {
+    background-color: #222630;
+
+    &-header {
+      width: 100%;
+      background-color: #353c4a;
+      box-shadow: 2.18px 2.18px 4px rgba(0, 0, 0, 0.25),
+        -2.18px -2.18px 4px #353c4a;
+      border-radius: 0 0 5px 5px;
+    }
+
+    &-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

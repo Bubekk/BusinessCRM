@@ -1,0 +1,65 @@
+.todopage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 90px 10px 20px 15px;
+
+  &-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-button {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 30px;
+      border: 3px solid green;
+      border-radius: 100%;
+      font-size: 32px;
+      color: rgb(10, 153, 10);
+      background: none;
+      cursor: pointer;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      input {
+        width: 100%;
+        height: 60px;
+        border-radius: 30px;
+        border: none;
+        background: #2f343f;
+        box-shadow: inset 12px 12px 40px #23272f, inset -12px -12px 40px #3b414f;
+        margin-bottom: 15px;
+        padding: 0 15px 0 15px;
+        color: white;
+
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      button {
+        width: 50%;
+        height: 50px;
+        background-color: #3b3f49;
+        box-shadow: 2.18px 2.18px 4px #00000040, -2.18px -2.18px 4px #434750;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+  }
+}
