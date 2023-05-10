@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 function BudgetPage(props) {
   const isActive = props.activeComponent === "ProjectsPage";
 
+  //Adding toast alert to page after the budget is below zero
   const debtAlert = () => toast.error("Watch out! You're in debt!", {
     position: "top-center",
     autoClose: 2000,
