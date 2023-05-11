@@ -18,14 +18,14 @@ function BudgetPage(props) {
     })
 
   //variables for budget chart
-  const [budget, setBudget] = useState(32000);
+  const [budget, setBudget] = useState(0);
   const [hrExpenses, setHrExpenses] = useState(0);
   const [maintanceExpenses, setMaintanceExpenses] = useState(0);
   const [prExpenses, setPrExpenses] = useState(0);
   const [expenses, setExpenses] = useState(0);
   const [budgetLeft, setBudgetLeft] = useState(0);
 
-  //re-rendering and calculating expenses and budget
+  //re-rendering and calculating expenses and budget (FIX BUG WITH x3 TOAST!!!)
   useEffect(() => {
     setExpenses(hrExpenses + prExpenses + maintanceExpenses);
     setBudgetLeft(budget - expenses);
@@ -137,6 +137,8 @@ function BudgetPage(props) {
           <p className="budgetpage-chart-info-bartag budget">
             BUDGET: $ {budget}
           </p>
+          {/* By now budget is set by range input just for dev and testing */}
+          <input type="range" min={0} max={100000} step={500} onChange={(e) => {setBudget(e.target.value)}}/>
           <p className="budgetpage-chart-info-bartag budgetleft">
             BUDGET LEFT: $ {budgetLeft}
           </p>

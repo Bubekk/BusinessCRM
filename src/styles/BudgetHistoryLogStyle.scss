@@ -1,0 +1,30 @@
+.logcontainer {
+  width: 98%;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #323843, #2a2f39);
+  box-shadow: 8px 8px 9px #191c21, -8px -8px 9px #454c5d;
+  margin-bottom: 20px;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    p {
+      text-align: right;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
