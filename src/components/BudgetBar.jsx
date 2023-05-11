@@ -6,7 +6,7 @@ function BudgetBar(props) {
       <div
         className="chart-bar-budget"
         style={{
-          width: props.expenses === 0 ? "100%" : props.calculatePercentage(props.budget, props.budgetLeft),
+          width: props.expenses === 0 ? "100%" : props.budgetLeft < 0 ? "0" : props.calculatePercentage(props.budget, props.budgetLeft)
         }}
       ></div>
       <div

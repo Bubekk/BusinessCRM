@@ -10,7 +10,7 @@ function BudgetPage(props) {
   //Adding toast alert to page after the budget is below zero
   const debtAlert = () => toast.error("Watch out! You're in debt!", {
     position: "top-center",
-    autoClose: 2000,
+    autoClose: 1000,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -40,7 +40,7 @@ function BudgetPage(props) {
     return res.toFixed(2) + "%";
   };
 
-  //Showing and hiding form after clickinf button
+  //Showing and hiding form after clicking button
   const [showForm, setShowForm] = useState(false);
   const handleShowForm = () => {
     setShowForm(!showForm);
