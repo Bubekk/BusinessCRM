@@ -1,4 +1,4 @@
-import "../styles/ProjectsPageStyle.scss";
+import "./styles/ProjectsPageStyle.scss";
 
 function ProjectsPage(props) {
   

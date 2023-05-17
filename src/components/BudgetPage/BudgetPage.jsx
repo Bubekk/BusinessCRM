@@ -1,7 +1,7 @@
-import "../styles/BudgetPageStyle.scss";
+import "./styles/BudgetPageStyle.scss";
 import { useEffect, useState } from "react";
-import BudgetBar from "./BudgetBar";
-import BudgetHistoryLog from "./BudgetHistoryLog";
+import BudgetBar from "./UI/BudgetBar";
+import BudgetHistoryLog from "./UI/BudgetHistoryLog";
 import toast, { Toaster } from "react-hot-toast";
 
 function BudgetPage(props) {

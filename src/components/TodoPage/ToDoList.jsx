@@ -1,53 +1,26 @@
-import "../styles/ToDoListStyle.scss";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import ToDoTile from "./ToDoTile";
+import "./styles/ToDoListStyle.scss";
+import { DataContext } from "../DataFetch";
+import { useState, useContext } from "react";
+import ToDoTile from "./UI/ToDoTile";
 
 function ToDoListPage(props) {
   //Transmits which component schould be active and displayed on page
   const isActive = props.activeComponent === "ToDoListPage";
 
-  //Showing and hiding form after clickinf button
+  //Showing and hiding form after clicking the button
   const [showForm, setShowForm] = useState(false);
   const handleShowForm = () => {
     setShowForm(!showForm);
   };
 
   //Form variables
-  const [tasks, setTasks] = useState([]);
+  //Importing data from DataFetch file
+  const { tasks, postTasks, deletingTasks } = useContext(DataContext);
   const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-
-  //Getting tasks from DB
-  const fetchTasks = async () => {
-    await axios
-      .get("https://bussines-crm-default-rtdb.firebaseio.com/ToDo.json")
-      .then((response) => {
-        const fetchedTasks = [];
-        for (let key in response.data) {
-          fetchedTasks.push({
-            ...response.data[key],
-            id: key,
-          });
-        }
-        setTasks(fetchedTasks);
-      });
-  };
-
-  //axios request to post task
-  const postTasks = async (task) => {
-    await axios
-      .post(`https://bussines-crm-default-rtdb.firebaseio.com/ToDo.json`, task)
-      .then(() => {});
-    fetchTasks();
-  };
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
 
   //Adding task to the tasks list
   const handleSubmitTask = (e) => {
@@ -65,11 +38,8 @@ function ToDoListPage(props) {
   };
 
   //Deleting tasks which are done
-  const handleMarkAsDone = async (taskid) => {
-    await axios.delete(
-      `https://bussines-crm-default-rtdb.firebaseio.com/ToDo/${taskid}.json`
-    );
-    fetchTasks();
+  const handleMarkAsDone = (taskid) => {
+    deletingTasks(taskid);
   };
 
   //Rendering task tile on page

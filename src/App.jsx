@@ -1,12 +1,13 @@
 import "./App.css";
+import { DataProvider } from "./components/DataFetch";
 import NavBar from "./components/Nav";
 import MainPage from "./components/MainPage";
-import ToDoList from "./components/ToDoList";
+import ToDoList from "./components/TodoPage/ToDoList";
 import NotificationsPage from "./components/NotificationsPage";
-import EmployeesPage from "./components/EmployeesPage";
-import ProjectsPage from "./components/ProjectsPage";
-import BudgetPage from "./components/BudgetPage";
-import SettingsPage from "./components/SettingsPage";
+import EmployeesPage from "./components/EmployeePage/EmployeesPage";
+import ProjectsPage from "./components/ProjectsPage/ProjectsPage";
+import BudgetPage from "./components/BudgetPage/BudgetPage";
+import SettingsPage from "./components/SettingsPage/SettingsPage";
 import { useState } from "react";
 
 function App() {
@@ -34,10 +35,12 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <NavBar setActiveComponent={setActiveComponent} />
-      <div className="page">{displayComponent()}</div>
-    </div>
+    <DataProvider>
+      <div className="container">
+        <NavBar setActiveComponent={setActiveComponent} />
+        <div className="page">{displayComponent()}</div>
+      </div>
+    </DataProvider>
   );
 }
 
