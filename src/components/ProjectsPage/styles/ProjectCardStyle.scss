@@ -1,0 +1,60 @@
+.projectcard {
+  width: 95%;
+  top: 90px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid white;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #323843;
+  transform: translateX(-400px);
+  transition: transform 0.5s;
+
+  &-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #474d58;
+
+    &-title {
+      background: none;
+      border: none;
+      font-size: 32px;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    &-details {
+      display: flex;
+
+      &-description {
+        &-textarea {
+          height: 100px;
+          background: none;
+          border: none;
+          font-size: 20px;
+        }
+
+        &-date {
+          background: none;
+          border: none;
+          font-size: 20px;
+        }
+
+        &-client {
+          background: none;
+          border: none;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

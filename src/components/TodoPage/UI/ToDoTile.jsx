@@ -14,7 +14,7 @@ function ToDoTile(props) {
   const doneMemo = () => toast.success("You did it!")
 
   //Transmiting data to deleting task, specifically id of task
-  const handleDoneClick = (taskid) => {
+  const handleDoneClick = () => {
     props.done(props.number);
     doneMemo();
   };

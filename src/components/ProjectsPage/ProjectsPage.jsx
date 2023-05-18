@@ -1,133 +1,161 @@
 import "./styles/ProjectsPageStyle.scss";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import ProjectTile from "./UI/ProjectTile";
+import ProjectCard from "./UI/ProjectCard";
+
+// function ProjectsPage(props) {
+//   //Transmits which component schould be active and displayed on page
+//   const isActive = props.activeComponent === "ProjectsPage";
+
+//   const [showProject, setShowProject] = useState(false);
+//   const [tempPro, setTempPro] = useState([]);
+
+//   const [id, setId] = useState(0);
+
+//   const handleAddClick = () => {
+//     const newTempPro = {
+//       id: id,
+//       projectTitle: "Your Project",
+//       projectDescription: "Set your description",
+//       projectClient: "Who's your client?",
+//       projectDate: "Date",
+//     };
+//     setTempPro([...tempPro, newTempPro]);
+//     setId(id + 1);
+//   };
+
+//   const handleShowClick = () => {
+//     setShowProject(!showProject);
+//   };
+
+//   const handleTileClick = (projectId) => {
+//     setShowProject(true);
+//     const project = tempPro.find((pro) => pro.id === projectId);
+//     if (project) {
+//       setTempPro((prevTempPro) =>
+//         prevTempPro.map((pro) =>
+//           pro.id === projectId ? { ...pro, isActive: true } : { ...pro, isActive: false }
+//         )
+//       );
+//     }
+//   };
+
+//   const handleUpdateProject = (projectId, updatedProject) => {
+//     setTempPro((prevTempPro) =>
+//       prevTempPro.map((pro) =>
+//         pro.id === projectId ? { ...pro, ...updatedProject } : pro
+//       )
+//     );
+//   };
+
+//   const renderedPro = tempPro.map((pro) => (
+//     <ProjectTile
+//       key={pro.id}
+//       id={pro.id}
+//       title={pro.projectTitle}
+//       description={pro.projectDescription}
+//       client={pro.projectClient}
+//       projectClick={() => handleTileClick(pro.id)}
+//       isActive={pro.isActive}
+//     />
+//   ));
+
+//   return (
+//     <div className="projectspage" style={{ display: isActive ? "none" : "flex" }}>
+//       <ProjectCard
+//         style={{
+//           transform: showProject ? "translateX(0px)" : "translateX(-400px)",
+//         }}
+//         close={handleShowClick}
+//         project={tempPro.find((pro) => pro.isActive)}
+//         updateProject={handleUpdateProject}
+//       />
+//       {renderedPro}
+//       <button className="projectpage-addbtn" onClick={handleAddClick}>
+//         Add Project
+//       </button>
+//     </div>
+//   );
+// }
 
 function ProjectsPage(props) {
-  //Transmits which component schould be active and displayed on page
   const isActive = props.activeComponent === "ProjectsPage";
 
-  //Showing and hiding form after clicking button
-  const [showForm, setShowForm] = useState(false);
+  const [showProject, setShowProject] = useState(false);
+  const [tempPro, setTempPro] = useState([]);
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
 
-  const [tempProjects, setTempProjects] = useState([]);
+  const [projectTitle, setProjectTitle] = useState("Your Project");
+  const [projectDescription, setProjectDescription] = useState("Set your description");
+  const [projectClient, setProjectClient] = useState("Who's your client?");
+  const [projectDate, setProjectDate] = useState("Date");
 
-  const [id, setId] = useState(0);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [bucketList, setBucketList] = useState([]);
-  const [selectedFiles, setSelectedFiles] = useState([]);
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handleBucketListChange = (index) => {
-    const updatedBucketList = [...bucketList];
-    updatedBucketList[index].checked = !updatedBucketList[index].checked;
-    setBucketList(updatedBucketList);
-  };
-
-  const handleAddBucketItem = () => {
-    setBucketList([...bucketList, { task: "", checked: false }]);
-  };
-
-  const handleBucketItemChange = (index, value) => {
-    const updatedBucketList = [...bucketList];
-    updatedBucketList[index].task = value;
-    setBucketList(updatedBucketList);
-  };
-
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setSelectedFiles([...selectedFiles, ...files]);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Wyślij dane do serwera lub wykonaj inne operacje
-    console.log({
-      id,
-      title,
-      description,
-      bucketList,
-      selectedFiles,
-    });
-    const newProject = {
-      id: id,
-      title: title,
-      description: description,
-      bucket: bucketList,
-      files: selectedFiles,
+  const handleAddClick = () => {
+    const newTempPro = {
+      id: tempPro.length + 1,
+      title: projectTitle,
+      description: projectDescription,
+      client: projectClient,
+      date: projectDate,
     };
-    setTempProjects([...tempProjects, newProject]);
-    // Zresetuj formularz
-    setId(id + 1);
-    setTitle("");
-    setDescription("");
-    setBucketList([]);
-    setSelectedFiles([]);
+    setTempPro([...tempPro, newTempPro]);
   };
 
-  const renderedProjects = tempProjects.map((project) => (
+  const handleShowClick = () => {
+    setShowProject(!showProject);
+  };
+
+  const handleTileClick = (projectId) => {
+    setSelectedProjectId(projectId);
+    setShowProject(true);
+  };
+
+  const handleUpdateProject = () => {
+    const updatedTempPro = tempPro.map((pro) => {
+      if (pro.id === selectedProjectId) {
+        return {
+          ...pro,
+          title: projectTitle,
+          description: projectDescription,
+          client: projectClient,
+          date: projectDate,
+        };
+      }
+      return pro;
+    });
+    setTempPro(updatedTempPro);
+  };
+
+  const renderedPro = tempPro.map((pro) => (
     <ProjectTile
-      key={project.id}
-      title={project.title}
-      description={project.description}
-      bucket={project.bucket}
-      files={project.files}
+      key={pro.id}
+      id={pro.id}
+      title={pro.title}
+      projectClick={() => handleTileClick(pro.id)}
     />
   ));
 
   return (
-    <div
-      className="projectspage"
-      style={{ display: isActive ? "none" : "flex" }}
-    >
-      <div className="projectspage-formcontainer">
-        <h1>Dodaj nowy projekt</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Tytuł:
-            <input type="text" value={title} onChange={handleTitleChange} />
-          </label>
-          <label>
-            Opis:
-            <textarea value={description} onChange={handleDescriptionChange} />
-          </label>
-          <label>
-            Bucket List:
-            {bucketList.map((item, index) => (
-              <div key={index}>
-                <input
-                  type="checkbox"
-                  checked={item.checked}
-                  onChange={() => handleBucketListChange(index)}
-                />
-                <input
-                  type="text"
-                  value={item.task}
-                  onChange={(e) =>
-                    handleBucketItemChange(index, e.target.value)
-                  }
-                />
-              </div>
-            ))}
-            <button type="button" onClick={handleAddBucketItem}>
-              Dodaj element do listy
-            </button>
-          </label>
-          <label>
-            Zdjęcia i pliki:
-            <input type="file" multiple onChange={handleFileChange} />
-          </label>
-          <button type="submit">Dodaj projekt</button>
-        </form>
-      </div>
-      {renderedProjects}
+    <div className="projectspage" style={{ display: isActive ? "none" : "flex" }}>
+      <ProjectCard
+        style={{
+          transform: showProject ? "translateX(0px)" : "translateX(-400px)",
+        }}
+        close={handleShowClick}
+        title={projectTitle}
+        description={projectDescription}
+        client={projectClient}
+        date={projectDate}
+        updateProject={handleUpdateProject}
+        setProjectTitle={setProjectTitle}
+        setProjectDescription={setProjectDescription}
+        setProjectClient={setProjectClient}
+        setProjectDate={setProjectDate}
+      />
+      {renderedPro}
+      <button className="projectpage-addbtn" onClick={handleAddClick}>
+        Add Project
+      </button>
     </div>
   );
 }
