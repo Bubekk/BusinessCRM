@@ -153,7 +153,6 @@ function BudgetPage(props) {
         <button
           className="budgetpage-add-button"
           onClick={handleShowForm}
-          // style={{ display: showForm ? "none" : "block" }}
         >
           +
         </button>
