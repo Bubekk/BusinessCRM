@@ -3,81 +3,6 @@ import { useState } from "react";
 import ProjectTile from "./UI/ProjectTile";
 import ProjectCard from "./UI/ProjectCard";
 
-// function ProjectsPage(props) {
-//   //Transmits which component schould be active and displayed on page
-//   const isActive = props.activeComponent === "ProjectsPage";
-
-//   const [showProject, setShowProject] = useState(false);
-//   const [tempPro, setTempPro] = useState([]);
-
-//   const [id, setId] = useState(0);
-
-//   const handleAddClick = () => {
-//     const newTempPro = {
-//       id: id,
-//       projectTitle: "Your Project",
-//       projectDescription: "Set your description",
-//       projectClient: "Who's your client?",
-//       projectDate: "Date",
-//     };
-//     setTempPro([...tempPro, newTempPro]);
-//     setId(id + 1);
-//   };
-
-//   const handleShowClick = () => {
-//     setShowProject(!showProject);
-//   };
-
-//   const handleTileClick = (projectId) => {
-//     setShowProject(true);
-//     const project = tempPro.find((pro) => pro.id === projectId);
-//     if (project) {
-//       setTempPro((prevTempPro) =>
-//         prevTempPro.map((pro) =>
-//           pro.id === projectId ? { ...pro, isActive: true } : { ...pro, isActive: false }
-//         )
-//       );
-//     }
-//   };
-
-//   const handleUpdateProject = (projectId, updatedProject) => {
-//     setTempPro((prevTempPro) =>
-//       prevTempPro.map((pro) =>
-//         pro.id === projectId ? { ...pro, ...updatedProject } : pro
-//       )
-//     );
-//   };
-
-//   const renderedPro = tempPro.map((pro) => (
-//     <ProjectTile
-//       key={pro.id}
-//       id={pro.id}
-//       title={pro.projectTitle}
-//       description={pro.projectDescription}
-//       client={pro.projectClient}
-//       projectClick={() => handleTileClick(pro.id)}
-//       isActive={pro.isActive}
-//     />
-//   ));
-
-//   return (
-//     <div className="projectspage" style={{ display: isActive ? "none" : "flex" }}>
-//       <ProjectCard
-//         style={{
-//           transform: showProject ? "translateX(0px)" : "translateX(-400px)",
-//         }}
-//         close={handleShowClick}
-//         project={tempPro.find((pro) => pro.isActive)}
-//         updateProject={handleUpdateProject}
-//       />
-//       {renderedPro}
-//       <button className="projectpage-addbtn" onClick={handleAddClick}>
-//         Add Project
-//       </button>
-//     </div>
-//   );
-// }
-
 function ProjectsPage(props) {
   const isActive = props.activeComponent === "ProjectsPage";
 
@@ -90,6 +15,7 @@ function ProjectsPage(props) {
   const [projectClient, setProjectClient] = useState("Who's your client?");
   const [projectDate, setProjectDate] = useState("Date");
 
+  //Adding Project Tile to page
   const handleAddClick = () => {
     const newTempPro = {
       id: tempPro.length + 1,
@@ -101,15 +27,18 @@ function ProjectsPage(props) {
     setTempPro([...tempPro, newTempPro]);
   };
 
+  //Showing project card after clicking project tile
   const handleShowClick = () => {
     setShowProject(!showProject);
   };
 
+  //set choosed project id
   const handleTileClick = (projectId) => {
     setSelectedProjectId(projectId);
     setShowProject(true);
   };
 
+  //updating project detail from project card level
   const handleUpdateProject = () => {
     const updatedTempPro = tempPro.map((pro) => {
       if (pro.id === selectedProjectId) {
@@ -126,6 +55,7 @@ function ProjectsPage(props) {
     setTempPro(updatedTempPro);
   };
 
+  //rendering project tiles on page
   const renderedPro = tempPro.map((pro) => (
     <ProjectTile
       key={pro.id}

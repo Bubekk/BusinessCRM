@@ -2,6 +2,7 @@ import '../styles/ProjectTileStyle.scss';
 
 function ProjectTile(props) {
 
+    //tranmit to handleShowClick
     const handleClick = () => {
         props.projectClick();
     }

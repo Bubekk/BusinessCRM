@@ -3,6 +3,7 @@ import "../styles/ProjectCardStyle.scss";
 function ProjectCard(props) {
   const { project, close, updateProject } = props;
 
+  //closing projectpage with X btn
   const handleExitClick = () => {
     close();
   };
