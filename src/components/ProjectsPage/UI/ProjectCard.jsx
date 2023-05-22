@@ -8,6 +8,7 @@ function ProjectCard(props) {
     close();
   };
 
+  //seting edited detail about project
   const handleChange = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -30,6 +31,7 @@ function ProjectCard(props) {
     }
   };
 
+  //handling saving details about project
   const handleSaveClick = () => {
     props.updateProject(props.id, {
       title: props.projectTitle,
